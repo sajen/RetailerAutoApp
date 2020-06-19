@@ -130,13 +130,14 @@ public class RetailerAutoActivity extends CarActivity {
                 + "(" + "Current " + ")&daddr=" + latLng.latitude + ","
                 + latLng.longitude + " (Retailer)";*/
 
-        String uri = "http://maps.google.com/maps?daddr=" + latLng.latitude + ","
-                + latLng.longitude + " (Retailer)";
-
+        /*String uri = "http://maps.google.com/maps?daddr=" + latLng.latitude + ","
+                + latLng.longitude + " (Retailer)";*/
+        String uri = "google.navigation:q="+latLng.latitude+","+latLng.longitude;
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setPackage("com.google.android.apps.maps");
-            startActivity(intent);
+            startCarActivity(intent);
         } catch (ActivityNotFoundException ex) {
             try {
                 Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
