@@ -2,6 +2,7 @@ package my.work.retailerautoapp
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -94,6 +95,9 @@ class RetailerAutoActivity : CarActivity() {
                     e.printStackTrace()
                 }
             }
+            holder.itemView.setOnClickListener {
+                navigateToProfile(retailerList[position])
+            }
         }
 
         override fun getItemCount(): Int {
@@ -117,5 +121,19 @@ class RetailerAutoActivity : CarActivity() {
                 Toast.makeText(this, "Please install a maps application", Toast.LENGTH_LONG).show()
             }
         }
+    }
+    private fun navigateToProfile(retailer:Retailer){
+        val intent = Intent(this,RetailerProfileAppService::class.java)
+        getSharedPreferences("retailer",0)
+                .edit()
+                .putString("retailerName",retailer.getRetailerName())
+                .putString("address",retailer.getRetailerAddress())
+                .apply()
+        /*val bundle = Bundle()
+        bundle.putString("retailerName",retailer.getRetailerName())
+        bundle.putString("address",retailer.getRetailerAddress())
+        intent.putExtras(bundle)*/
+        intent.flags = FLAG_ACTIVITY_NEW_TASK
+        startCarActivity(intent)
     }
 }

@@ -35,6 +35,16 @@
             </intent-filter>
         </service>
 
+        <service android:name=".RetailerProfileAppService"
+            android:exported="true"
+            android:label="Retailer Auto Service">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION" />
+                <category android:name="com.google.android.gms.car.category.CATEGORY_PROJECTION_OEM" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/profileImage"
+        android:src="@drawable/ic_account_circle_black_24dp"
+        android:layout_margin="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+    <TextView
+        android:id="@+id/retailerName"
+        android:text="@string/app_name"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:layout_alignTop="@+id/profileImage"
+        android:layout_toRightOf="@+id/profileImage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_toEndOf="@+id/profileImage" />
+    <TextView
+        android:id="@+id/address"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_alignBottom="@id/profileImage"
+        android:layout_below="@+id/retailerName"
+        android:layout_toRightOf="@+id/profileImage"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_toEndOf="@+id/profileImage" />
+</RelativeLayout>
