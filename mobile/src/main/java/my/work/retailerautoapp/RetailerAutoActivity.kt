@@ -37,7 +37,7 @@ class RetailerAutoActivity : CarActivity() {
 
         val kpiListAdapter = OutletListAdapter()
         recyclerView.adapter = kpiListAdapter
-        val mLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 2)
+        val mLayoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 1)
         recyclerView.layoutManager = mLayoutManager
     }
     private fun setValue() {
